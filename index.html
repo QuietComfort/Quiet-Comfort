@@ -12,7 +12,12 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #120e0c; /* Deep, moody background */
+            background-color: #120e0c; /* Deep fallback tone */
+            /* OPTION B BACKDROP: Points exactly to your background file */
+            background-image: linear-gradient(rgba(18, 14, 12, 0.75), rgba(18, 14, 12, 0.8)), url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             font-family: 'Georgia', serif;
             color: #e5dcd5;
         }
@@ -29,11 +34,6 @@
         /* 1. HERO SPLASH SECTION */
         .hero-section {
             min-height: 85vh;
-            /* REPLACE 'background-image.jpg' WITH YOUR ACTUAL BACKGROUND IMAGE LATER */
-            background-image: linear-gradient(rgba(18, 14, 12, 0.8), rgba(18, 14, 12, 0.85)), url('background-image.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             text-align: center;
             padding-top: 100px;
         }
@@ -57,30 +57,54 @@
             margin-bottom: 40px;
         }
 
-        /* Modern Dynamic Button */
-        .shop-button {
+        /* Modern Button Container */
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Modern Dynamic Buttons */
+        .btn {
             display: inline-block;
-            background-color: transparent;
-            color: #c5a9e0;
             text-decoration: none;
-            padding: 15px 40px;
+            padding: 15px 35px;
             font-size: 1.1rem;
             border-radius: 4px;
-            border: 2px solid #634585;
             letter-spacing: 2px;
             font-weight: bold;
             text-transform: uppercase;
             transition: all 0.4s ease;
         }
 
-        .shop-button:hover {
+        .shop-btn {
+            background-color: transparent;
+            color: #c5a9e0;
+            border: 2px solid #634585;
+        }
+
+        .shop-btn:hover {
             background-color: #4a3364;
             color: #ffffff;
             box-shadow: 0 0 15px rgba(99, 69, 133, 0.4);
             transform: translateY(-2px);
         }
 
-        /* 2. SPLIT GRID SECTION (Charcoal Background) */
+        .fb-btn {
+            background-color: transparent;
+            color: #8c769e;
+            border: 2px solid #3a2e2b;
+        }
+
+        .fb-btn:hover {
+            background-color: #221b18;
+            color: #c5a9e0;
+            border-color: #634585;
+            transform: translateY(-2px);
+        }
+
+        /* 2. SPLIT GRID SECTION */
         .grid-section {
             background-color: #161210;
             min-height: 50vh;
@@ -92,7 +116,7 @@
             max-width: 1000px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* Gives slightly more room to your focus points */
+            grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
         }
 
@@ -105,7 +129,7 @@
 
         /* Smoky Frosted Glass Cards */
         .glass-card {
-            background-color: rgba(34, 27, 24, 0.4);
+            background-color: rgba(34, 27, 24, 0.45);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(74, 59, 55, 0.3);
@@ -147,7 +171,6 @@
             padding-left: 25px;
         }
 
-        /* Tiny elegant custom bullet points */
         .focus-list li::before {
             content: "❦";
             position: absolute;
@@ -207,15 +230,22 @@
     <section class="hero-section">
         <div class="hero-content">
             <div class="logo-area">
-                <!-- REPLACE WITH YOUR LOGO FILE NAME -->
-                <img src="logo.png" alt="The Quiet Comfort Project Logo">
+                <!-- Pointed directly to your custom banner file name -->
+                <img src="banner.png.png" alt="The Quiet Comfort Project Logo">
             </div>
             <p class="mission-text">
                 We handcraft unique, useful items designed to bring warmth and character into your everyday life. Crafted from reclaimed fabrics, our blankets, bags, and gear are built for purposeful living—and every purchase helps us fund custom donation items tailored to the specific needs of people and animals in hardship.
             </p>
-            <a href="https://the-quiet-comfort-project.square.site/" target="_blank" class="shop-button">
-                Explore The Shop Site
-            </a>
+            
+            <!-- Dual Dynamic Buttons (Shop & Facebook brought to top) -->
+            <div class="button-group">
+                <a href="https://the-quiet-comfort-project.square.site/" target="_blank" class="btn shop-btn">
+                    Explore The Shop
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61588917909281" target="_blank" class="btn fb-btn">
+                    Follow on Facebook
+                </a>
+            </div>
         </div>
     </section>
 
@@ -233,7 +263,7 @@
                     </li>
                     <li>
                         <strong>The Mission</strong>
-                        Sales from this stock are directly funding the creation of comfort and donation bags for a local human shelter.
+                        Sales from this stock are directly fund the creation of comfort bags filled with toiletries, handcrafted gear, and other helpful items for local individuals and families navigating hardship.
                     </li>
                     <li>
                         <strong>How You Can Help</strong>
@@ -259,7 +289,7 @@
     <!-- SECTION 3: THE MINIMAL FOOTER -->
     <footer>
         <div class="footer-links">
-            <a href="https://www.facebook.com/profile.php?id=61588917909281" target="_blank">Find us on Facebook</a>
+            <a href="https://www.facebook.com/profile.php?id=61588917909281" target="_blank">Facebook</a>
             <span>|</span>
             <a href="mailto:Hello@thequietcomfortproject.org">Hello@thequietcomfortproject.org</a>
         </div>
